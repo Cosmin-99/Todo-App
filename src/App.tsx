@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import { AddToDo } from "./AddTodoList";
+import { Menu } from './Menu';
+import { Show } from './showToDo';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+    <Router>
+      <h1 className = "header">ToDo App</h1>
+      <Menu/>
+      <Route path = "/" exact strict render = {
+              () => {
+                  return (
+                    <h1>This is the app Home page , please enjoy !!!
+                    </h1>
+                  );
+              }
+          } />
+          <Route path = "/TodoList" exact strict component = {Show}/>
+          
+          <Route path = "/AddToDo" exact strict component = {AddToDo}/>
+    </Router>
+    );
 }
 
 export default App;
