@@ -1,8 +1,7 @@
 import React , {useState} from 'react';
-import {data} from "./AddTodoList";
-import {status} from "./AddTodoList";
+import {status,Todo} from "./AddTodoList";
 
-export function Show() {
+export function Show(props: {todoData: Todo[]}) {
 
     const [select , setSelect] = useState("");
 
@@ -15,7 +14,7 @@ export function Show() {
          </select>
 
         <ul>
-            {data.filter(x => x.statusActual === select).map(e => <li className = "childList">Titlu :{e.titlu}
+            {props.todoData.filter(x => x.statusActual === select).map(e => <li className = "childList">Titlu :{e.titlu}
                 <br/> Status: {e.statusActual}
                 <br/> Responsabil: {e.responsabil}
                 <br/> Termen Finalizare: {e.termenFinalizare}

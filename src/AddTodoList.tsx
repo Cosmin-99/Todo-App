@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 
-
 interface Status  {
    label: string
    val: string
 }
 
-interface Todo {
+export interface Todo {
     titlu: string
     statusActual: string
     responsabil: string
@@ -14,7 +13,7 @@ interface Todo {
     dataFinalizare: string
 }
 
- export const data: Todo[] = [];  //this array should be store objects with data from todoForm
+// export const data: Todo[] = [];  //this array should be store objects with data from todoForm
 
 export const status: Status[] = [
     {label:"Planificat" , val: "Planificat"},
@@ -23,7 +22,7 @@ export const status: Status[] = [
     {label:"Blocat" , val: "Blocat"}
 ];
 
-export function AddToDo() {
+export function AddToDo(props: {todoData: Todo[] , uploadData:  React.Dispatch<React.SetStateAction<Todo[]>>}) {
 
     const [todo, setToDo] = useState<Todo>({
         titlu: "",
@@ -32,7 +31,7 @@ export function AddToDo() {
         termenFinalizare: "",
         dataFinalizare: ""
     })
-    console.log(todo);
+    
     return (
       <>
         <form className = "form" onSubmit={() => {}}>
@@ -55,7 +54,7 @@ export function AddToDo() {
                 <input type="date" value = {todo.dataFinalizare} onChange={e => setToDo({...todo, dataFinalizare: e.target.value})} />
         </form>
 
-            <button className = "button" onClick={() => data.push(todo)}>
+            <button className = "button" onClick={() => props.todoData.push(todo)}>
                 ADD
             </button>
       </>
