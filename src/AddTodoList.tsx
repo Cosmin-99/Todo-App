@@ -38,8 +38,6 @@ export function AddToDo(props: {datas: ToDo2[] , add: (todo: ToDo2) => void, get
 
     return (
         <div>
-            <h1>If you want to add a ToDo please press the button !!!</h1>
-
             <form className = "form" onSubmit={() => {}}>
             Text
                 <input type = "text" placeholder = "Scrie text " value = {todo.text} onChange={e => setToDo( {...todo, text: e.target.value})}/>
