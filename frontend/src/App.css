@@ -1,0 +1,136 @@
+.menu{
+  text-align: center;
+}
+
+.menuList {
+  list-style: none;
+}
+
+.menuList li {
+  float: left;
+  margin: 10px auto ;
+  width: 30%;
+  padding: 20px;
+  font-size: 20px;
+  color: brown;
+  background-color: aqua;
+}
+
+.content {
+  text-align: center;
+  padding: 80px;
+}
+
+.header {
+  text-align: center;
+}
+
+.menuList li:hover  {
+  background-color: chartreuse;
+}
+
+.form {
+  text-align: center;
+  height: 380px;
+  margin: 100px;
+  padding: 30px;
+}
+
+input[type=text], select {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[type=date], select {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  padding: 12px 20px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+.button { height:20px;
+  width:100px;
+  margin: -20px -50px;
+  position:relative;
+  top: -70px;
+  left: 50%;
+}
+
+.childList {
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 20px; 
+  width: 600px;
+  height: 150px;
+  text-align: center;
+  list-style: none; 
+  display: inline-block;
+  
+}
+
+.childList:not(:last-child){
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+select .option {
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  background-color:white;
+  height: 380px;
+  margin: 100px;
+  padding: 30px;
+}
+
+.button2 {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  background-color: whitesmoke;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 3px;
+}
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+.form-row > label {
+  padding: .5em 1em .5em 0;
+  flex: 1;
+}
+.form-row > input {
+  flex: 2;
+}
+.form-row > input,
+.form-row > button {
+  padding: .5em;
+}
