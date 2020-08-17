@@ -5,7 +5,7 @@ import { pool } from '../database';
 export const getTodo = async (req: Request, res: Response): Promise<Response> => {
     try {
         const response: QueryResult = await pool.query('SELECT * FROM todos');
-
+        console.log(response);
         return res.status(200).json(response.rows);
     } catch (e) {
         console.log(e);
@@ -29,7 +29,7 @@ export const getTodoByStatus = async (req: Request, res: Response): Promise<Resp
 export const addTodo = async (req: Request, res: Response): Promise<Response> => {
     try {
         const { titlu, status, responsabil, dataFinalizare, termenFINALIZARE } = req.body;
-        const response: QueryResult = await pool.query('INSERT INTO todos (titlu, status, responsabil, dataFinalizare, termenFINALIZARE) VALUES ($1, $2, $3, $4, $5)', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE]);
+        const response: QueryResult = await pool.query('INSERT INTO todos ("titlu", "status", "responsabil", "dataFinalizare", "termenFINALIZARE") VALUES ($1, $2, $3, $4, $5)', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE]);
 
         return res.status(200).json(response.rows);
     } catch (e) {
@@ -44,7 +44,7 @@ export const updateTodo = async (req: Request, res: Response): Promise<Response>
         const id: number = parseInt(req.params.id);
         const { titlu, status, responsabil, dataFinalizare, termenFINALIZARE } = req.body;
 
-        await pool.query('UPDATE todos SET titlu = $1, status = $2, responsabil = $3, dataFinalizare = $4, termenFINALIZARE = $5 WHERE id = $6', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE, id]);
+        await pool.query('UPDATE todos SET "titlu" = $1, "status" = $2, "responsabil" = $3, "dataFinalizare" = $4, "termenFINALIZARE" = $5 WHERE id = $6', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE, id]);
 
         return res.status(200).json("Todo updated succesfully !!!");
     } catch (e) {

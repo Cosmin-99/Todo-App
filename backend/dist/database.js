@@ -7,5 +7,5 @@ exports.pool = new pg_1.Pool({
     host: 'localhost',
     password: 'postgresadmin',
     database: 'todo',
-    port: 5432
+    port: 5432,
 });

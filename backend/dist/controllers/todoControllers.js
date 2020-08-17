@@ -14,6 +14,7 @@ const database_1 = require("../database");
 exports.getTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield database_1.pool.query('SELECT * FROM todos');
+        console.log(response);
         return res.status(200).json(response.rows);
     }
     catch (e) {
@@ -35,7 +36,7 @@ exports.getTodoByStatus = (req, res) => __awaiter(void 0, void 0, void 0, functi
 exports.addTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { titlu, status, responsabil, dataFinalizare, termenFINALIZARE } = req.body;
-        const response = yield database_1.pool.query('INSERT INTO todos (titlu, status, responsabil, dataFinalizare, termenFINALIZARE) VALUES ($1, $2, $3, $4, $5)', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE]);
+        const response = yield database_1.pool.query('INSERT INTO todos ("titlu", "status", "responsabil", "dataFinalizare", "termenFINALIZARE") VALUES ($1, $2, $3, $4, $5)', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE]);
         return res.status(200).json(response.rows);
     }
     catch (e) {
@@ -47,7 +48,7 @@ exports.updateTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     try {
         const id = parseInt(req.params.id);
         const { titlu, status, responsabil, dataFinalizare, termenFINALIZARE } = req.body;
-        yield database_1.pool.query('UPDATE todos SET titlu = $1, status = $2, responsabil = $3, dataFinalizare = $4, termenFINALIZARE = $5 WHERE id = $6', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE, id]);
+        yield database_1.pool.query('UPDATE todos SET "titlu" = $1, "status" = $2, "responsabil" = $3, "dataFinalizare" = $4, "termenFINALIZARE" = $5 WHERE id = $6', [titlu, status, responsabil, dataFinalizare, termenFINALIZARE, id]);
         return res.status(200).json("Todo updated succesfully !!!");
     }
     catch (e) {

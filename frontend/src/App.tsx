@@ -39,7 +39,7 @@ function App() {
       <Route path="/" exact strict render={
         () => {
           return (
-            <h1 className = "content">This is the app Home page , please enjoy !!!</h1>
+            <h1 className = "content">This is the app Home page , please enjoy it !!!</h1>
           );
         }
       } />

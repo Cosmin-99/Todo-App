@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+    backend:
+        image: todo-backend
+        build: ./backend
+        ports: 
+            - "8181:8181"
+        volumes:
+             - ./backend:/backend
+             - /backend/node_modules
+        depends_on: 
+            - postgres
+        links: 
+            - postgres
+        networks: 
+            - todonetwork 
+
+    frontend:
+        image: todo-frontend
+        build: ./frontend
+        restart: always
+        entrypoint: ["npm","start"]
+        ports: 
+            - "3000:3000"
+        volumes: 
+            - ./frontend:/frontend
+            - /frontend/node_modules
+        links: 
+            - backend
+        networks: 
+            - todonetwork
+
+    postgres: 
+        image: postgres
+        environment: 
+                POSTGRES_PASSWORD: postgresadmin
+                POSTGRES_USER: postgres
+                POSTGRES_DB: todo
+        volumes:
+            - ./pgdata:/var/lib/postgres/data
+        ports: 
+            - "5431:5431"
+        networks: 
+            -  todonetwork
+
+networks: 
+    todonetwork: 
+        driver: bridge

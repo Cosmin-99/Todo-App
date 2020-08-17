@@ -47,7 +47,7 @@ export function AddToDo() {
                 body: JSON.stringify(body)
             })
 
-            window.location.href = "/AddTodo";
+           
             console.log(response);
 
         } catch (err) {
@@ -104,7 +104,7 @@ export function AddToDo() {
     </li>
 	<li className="form-row">
       <label>Data Finalizare</label>
-      <input type="date" onChange={e => setToDo({ ...todo, dataFinalizare: console.log(moment(new Date(e.target.value)).format("YYYY-MM-DD")) })} />
+      <input type="date" onChange={e => setToDo({ ...todo, dataFinalizare: moment(new Date(e.target.value)).format("YYYY-MM-DD") })} />
     </li>
   </ul>
             </form>
