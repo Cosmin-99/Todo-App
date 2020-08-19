@@ -18,7 +18,6 @@ services:
     frontend:
         image: todo-frontend
         build: ./frontend
-        restart: always
         entrypoint: ["npm","start"]
         ports: 
             - "3000:3000"
@@ -29,6 +28,8 @@ services:
             - backend
         networks: 
             - todonetwork
+        stdin_open: true
+        restart: always
 
     postgres: 
         image: postgres
@@ -37,9 +38,10 @@ services:
                 POSTGRES_USER: postgres
                 POSTGRES_DB: todo
         volumes:
-            - ./pgdata:/var/lib/postgres/data
+            - ./pgdata:/var/lib/postgresql/data
         ports: 
-            - "5431:5431"
+            - "5432:5432"
+        restart: always    
         networks: 
             -  todonetwork
 
