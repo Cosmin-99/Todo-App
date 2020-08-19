@@ -1,12 +1,12 @@
 FROM node
 
-RUN mkdir -p /backend
-
 WORKDIR /backend
 
-COPY package*.json /backend/
+COPY package.json /backend/
 
 RUN npm install
+
+RUN npm install -g nodemon && npm install -g concurrently && npm install -g typescript
 
 COPY . /backend/
 

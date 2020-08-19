@@ -1,10 +1,8 @@
 FROM node
 
-RUN mkdir -p /frontend
-
 WORKDIR /frontend
 
-COPY package*.json /frontend/
+COPY package.json /frontend/
 
 RUN npm install
 
