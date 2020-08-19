@@ -5,6 +5,8 @@ import { AddToDo, Todo } from "./AddTodoList";
 import { Menu } from './Menu';
 import { Show } from './showToDo';
 import moment from 'moment';
+import { Carousel } from './Carousel';
+import {Details} from './Details'
 
 
 function App() {
@@ -32,17 +34,12 @@ function App() {
   //getData();
 
   return (
-    <Router>
-      <h1 className="header">ToDo App</h1>
+    <Router>     
       <Menu />
-
-      <Route path="/" exact strict render={
-        () => {
-          return (
-            <h1 className = "content">This is the app Home page , please enjoy it !!!</h1>
-          );
-        }
-      } />
+      <Route path="/" >
+        <Carousel />
+        <Details />
+        </Route>
       <Route path="/TodoList" >
          <Show  datas = {data} setData = {setData}/>
       </Route>
