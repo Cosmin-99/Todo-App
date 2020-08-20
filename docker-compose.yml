@@ -4,7 +4,7 @@ services:
         image: todo-backend
         build: ./backend
         ports: 
-            - "8181:8181"
+            - "5000:5000"
         volumes:
              - ./backend:/backend
              - /backend/node_modules
@@ -31,7 +31,7 @@ services:
         stdin_open: true
         restart: always
 
-    postgres: 
+     postgres: 
         image: postgres
         environment: 
                 POSTGRES_PASSWORD: postgresadmin

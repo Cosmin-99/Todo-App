@@ -10,6 +10,6 @@ RUN npm install -g nodemon && npm install -g concurrently && npm install -g type
 
 COPY . /backend/
 
-EXPOSE 8181
+EXPOSE 5000
 
 CMD ["npm" , "run" , "dev-watch"]
