@@ -31,7 +31,7 @@ services:
         stdin_open: true
         restart: always
 
-     postgres: 
+    postgres: 
         image: postgres
         environment: 
                 POSTGRES_PASSWORD: postgresadmin
