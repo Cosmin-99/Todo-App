@@ -36,7 +36,7 @@ export function AddToDo() {
         dataFinalizare: ""
     })
 
-    const submitForm = async () => {
+    const submitForm = async (): Promise<void> => {
 
         try {
             const body = { ...todo };
