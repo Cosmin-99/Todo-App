@@ -7,7 +7,7 @@ export function Show(props: { setData: (e: SetStateAction<Todo[]>) => void ,data
 
     const getTodos = async (): Promise<void> => {
         try {
-            const response: Response = await fetch("http://localhost:5000/todo");
+            const response: Response = await fetch("http://31.14.16.236:5000/todo");
             const jsonData = await response.json();
 
             props.setData(jsonData);
@@ -19,7 +19,7 @@ export function Show(props: { setData: (e: SetStateAction<Todo[]>) => void ,data
 
     const deleteTodo = async (id: number): Promise<void> => {
         try {
-            const response: Response = await fetch(`http://localhost:5000/todo/${id}`, {
+            const response: Response = await fetch(`http://31.14.16.236:5000/todo/${id}`, {
                 method: "DELETE"
             });
 
@@ -33,7 +33,7 @@ export function Show(props: { setData: (e: SetStateAction<Todo[]>) => void ,data
     const updateTodo = async (): Promise<void> => {
         try {
             const body = {...todos};
-            const response = await fetch(`http://localhost:5000/todo/${todos.id}`, {
+            const response = await fetch(`http://31.14.16.236:5000/todo/${todos.id}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)

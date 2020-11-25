@@ -41,7 +41,7 @@ export function AddToDo() {
         try {
             const body = { ...todo };
 
-            const response: Response = await fetch("http://localhost:5000/todo", {
+            const response: Response = await fetch("http://31.14.16.236:5000/todo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
